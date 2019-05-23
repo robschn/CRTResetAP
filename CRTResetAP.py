@@ -34,15 +34,15 @@ while True :
 	objTab.Screen.Send("\r\n")
 
 	# Send intial commands to AP
-	objTab.Screen.Send("purge" + "\r\n")
-	objTab.Screen.Send("save" + "\r\n")
+	objTab.Screen.Send("purge" + "\n")
+	objTab.Screen.Send("save" + "\n")
 
 	# Send command for the output to be captured
 	szCommand = "mfginfo"
-	objTab.Screen.Send(szCommand + "\r\n")
+	objTab.Screen.Send(szCommand + "\n")
 
 	# Wait for the command to finish
-	objTab.Screen.WaitForString(szCommand + "\r\n")
+	objTab.Screen.WaitForString(szCommand + "\n")
 
 	# This will cause ReadString() to capture data until we see the szPrompt
 	szResult = objTab.Screen.ReadString(szPrompt)
@@ -58,7 +58,7 @@ while True :
 	tab.Activate()
 
 	# Send command with wired MAC to second tab, the master controller
-	tab.Screen.Send("clear gap-db wired-mac " + apMAC + "\r\n")
+	tab.Screen.Send("clear gap-db wired-mac " + apMAC + "\n")
 
 	# Return back to first tab
 	tab = crt.GetTab(1)
